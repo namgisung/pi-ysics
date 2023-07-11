@@ -54,3 +54,4 @@ while play:
 
 
 pygame.quit()
+print
