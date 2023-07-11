@@ -1,5 +1,16 @@
 import pygame
 
+class box():
+    def __init__(self,x,y,length,mass,vect,color) :
+        self.x_y = (x,y)
+        self.mass = mass
+        self.length = length
+        self.velocity = vect
+        self.color = color
+
+    
+
+
 width = 800
 height = 450
 size = (width, height) # 게임창 크기 (window size)
@@ -20,15 +31,6 @@ box_length = 50
 box1_dx = -5
 box2_dx = 0
 
-class box():
-    def __init__(self,x,y,length,mass,vect,color) :
-        self.x_y = (x,y)
-        self.mass = mass
-        self.length = length
-        self.velocity = vect
-        self.color = color
-
-    def draw():
 
 
 
