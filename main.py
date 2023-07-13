@@ -19,7 +19,7 @@ box1_width = 50
 box2_width = 120
 
 box1_dx = 0
-box2_dx = -0.025
+box2_dx = -0.0125
 
 box1_mass = 1
 box2_mass = 1000000
@@ -70,7 +70,7 @@ while play:
     
 
     pygame.display.update()
-    clock.tick(1440)
+    clock.tick(2440)
 
 
 
