@@ -6,27 +6,32 @@ size = (width, height) # 게임창 크기 (window size)
 screen = pygame.display.set_mode(size)
 title = "Physics Simulator" # 창 제목 (window title)
 pygame.display.set_caption(title)
+pygame.init()
+
 
 black = (0,0,0)
 white = (255, 255, 255)
 
 box1_x = 300
 box1_y = 320
-box2_x = 550
+box2_x = 400
 box2_y = 250
 
 box1_width = 50
 box2_width = 120
 
 box1_dx = 0
-box2_dx = -0.0125
+box2_dx = -0.025
 
 box1_mass = 1
-box2_mass = 1000000
+box2_mass = 10000
 
 # 3. 게임 내 필요한 설정 (option for game)
 clock = pygame.time.Clock() # 시계 (clock)
 collision_num = 0
+
+font1 = pygame.font.Font(None, 30)
+font2 = pygame.font.Font(None, 30)
 
 play = True
 while play: 
@@ -35,6 +40,7 @@ while play:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             play = False
+        
 
     box2_x += box2_dx
     box1_x += box1_dx
@@ -43,10 +49,7 @@ while play:
         box1_dx *= -1
         collision_num += 1
         print(collision_num)
-    if box2_x <= 100:
-        box2_dx *= -1
-        collision_num += 1
-        print(collision_num)
+    
 
     if box1_x < box2_x + box2_width and box1_x + box1_width > box2_x and box1_y < box2_y + box2_width and box1_y + box1_width > box2_y:
         # 완전 탄성 충돌 계산
@@ -63,6 +66,14 @@ while play:
 
     screen.fill((0, 0, 0))
 
+      # 시스템 글꼴 로드
+    text1 = font1.render('collision_num : {}'.format(collision_num), True, white)
+    screen.blit(text1, (110, 10))
+    
+    
+    text2 = font2.render('blue object mass : {}'.format(box2_mass), True, white)
+    screen.blit(text2, (110, 40))
+
     pygame.draw.line(screen,(255,255,255),(0,370),(800,370),1)
     pygame.draw.line(screen,(255,255,255),(100,370),(100,0),1)
     pygame.draw.rect(screen,(255, 0, 0),(box1_x,box1_y,box1_width,box1_width))
@@ -70,7 +81,7 @@ while play:
     
 
     pygame.display.update()
-    clock.tick(2440)
+    clock.tick(1000000000000000000000)
 
 
 
