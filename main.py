@@ -12,7 +12,7 @@ pygame.init()
 black = (0,0,0)
 white = (255, 255, 255)
 
-box1_x = 300
+box1_x = 250
 box1_y = 320
 box2_x = 370
 box2_y = 250
